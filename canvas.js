@@ -38,13 +38,8 @@ c.stroke();
 // c.beginPath();
 // c.arc(200, 200, 30, 0, Math.PI * 2, false);
 // c.strokeStyle = 'blue';
-// // c.stroke();
-// var x = Math.random() * innerWidth;
-// var x = Math.random() * innerHeight;
-// var y = 200;
-// var dx = (Math.random() - 0.5) * 20;
-// var dy = (Math.random() - 0.5) * 20;
-// var radius = 30;
+// c.stroke();
+
 
 function Circle(x, y, dx, dy, radius){
     this.x = x;
@@ -75,21 +70,28 @@ function Circle(x, y, dx, dy, radius){
     }
 }
 
-var circle = new Circle(200, 200, 3, 3, 30);
 
+
+
+var circleArray = [];
+
+for (var i  = 0; i < 100; i++){
+    var x = Math.random() * innerWidth;
+    var y = Math.random() * innerHeight;
+    var dx = (Math.random() - 0.5) * 20;
+    var dy = (Math.random() - 0.5) * 20;
+    var radius = 30;
+    circleArray.push(new Circle(x, y, dx, dy, radius));
+}
 
 
 function animate() {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight);
 
-    circle.update();
-
-    c.beginPath();
-    c.arc(x, y, radius, 0, Math.PI * 2, false);
-    c.strokeStyle = 'blue';
-    c.stroke();
-
+    for (var i = 0; i < circleArray.length; i++) {
+        circleArray[i].update();
+    }
 
 }
 
