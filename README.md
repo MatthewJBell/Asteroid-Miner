@@ -1,2 +1,3 @@
-# Asteroid-Miner
-Basic JavaScript game.
+# Interactive-Canvas-Test
+Basic JavaScript interaction using canvas.
+
